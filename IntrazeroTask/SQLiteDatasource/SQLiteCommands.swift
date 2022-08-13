@@ -14,7 +14,7 @@ class SQLiteCommands {
     // Expressions
     static let id = Expression<String>("id")
     static let author = Expression<String>("author")
-    static let photo = Expression<Data>("photo")
+    static let photo = Expression<String>("photoUrl")
     
     // Creating Table
     static func createTable() {
@@ -43,7 +43,7 @@ class SQLiteCommands {
         }
         
         do {
-            try database.run(table.insert(id <- imageModel.id ?? "",author <- imageModel.author ?? "",photo <- imageModel.photo!))
+            try database.run(table.insert(id <- imageModel.id ?? "",author <- imageModel.author ?? "",photo <- imageModel.downloadURL!))
             return true
         } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
             print("Insert row failed: \(message), in \(String(describing: statement))")
@@ -72,7 +72,7 @@ class SQLiteCommands {
                 let photoValue = image[photo]
                 
                 // Create object
-                let imageObject = imageModel(id: idValue, author: authorValue, downloadURL: nil, photo: photoValue)
+                let imageObject = imageModel(id: idValue, author: authorValue, downloadURL: photoValue)
                 
                 // Add object to an array
                 imageArray.append(imageObject)

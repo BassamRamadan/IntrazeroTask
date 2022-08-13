@@ -10,9 +10,9 @@ import Foundation
 struct imageModel: Codable {
     let id, author: String?
     let downloadURL: String?
-    let photo: Data?
+    
     enum CodingKeys: String, CodingKey {
-        case id, author, photo
+        case id, author
         case downloadURL = "download_url"
     }
 }

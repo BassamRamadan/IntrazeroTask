@@ -17,71 +17,44 @@ class ViewShadow: UIView {
         layer.cornerRadius = 15
     }
 }
-
-class ButtonShadow: UIButton {
+class LabelShadow: PaddingLabel {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowRadius = 3
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.70
         layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.8
         layer.masksToBounds = false
         
-        layer.cornerRadius = 5
+        clipsToBounds = true
+        layer.cornerRadius = 20
+        layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
 }
+@IBDesignable class PaddingLabel: UILabel {
 
+    @IBInspectable var topInset: CGFloat = 5.0
+    @IBInspectable var bottomInset: CGFloat = 5.0
+    @IBInspectable var leftInset: CGFloat = 7.0
+    @IBInspectable var rightInset: CGFloat = 7.0
 
-class TextFieldShadow: UITextField {
-    
-    let padding = UIEdgeInsets(top: 0,left: 15,bottom: 0,right: 15)
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.70
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.8
-        layer.masksToBounds = false
-        layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 0.5
-        layer.cornerRadius = 5
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
     }
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
     }
-    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-}
-class TextViewShadowWithBorder: UITextView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
-        self.layer.borderWidth = 1.5
-        self.layer.borderColor = UIColor(named: "yellow")?.cgColor
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.70
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.8
-        layer.masksToBounds = false
-    }
-}
-class TextViewShadow: UITextView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.70
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.8
-        layer.masksToBounds = false
+
+    override var bounds: CGRect {
+        didSet {
+            // ensures this works within stack views if multi-line
+            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
+        }
     }
 }
 

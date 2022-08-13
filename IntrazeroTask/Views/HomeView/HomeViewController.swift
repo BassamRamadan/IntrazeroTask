@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet var imagesCollection: UICollectionView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
+    @IBOutlet var dataAvailabel: UILabel!
     
     // Create ViewModel
     var imageViewModel: ImageViewModel = {
@@ -28,8 +29,9 @@ class HomeViewController: UIViewController {
         imagesCollection.dataSource = self
     }
     private func initViewModel(){
-        imageViewModel.imageArray.bind { [weak self] (_) in
+        imageViewModel.imageArray.bind { [weak self] (data) in
             DispatchQueue.main.async {
+                self?.dataAvailabel.isHidden = data?.isEmpty == false
                 self?.imagesCollection.reloadData()
             }
         }
@@ -107,10 +109,13 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         let data = imageViewModel.cellForRowAt(indexPath: indexPath)
         // Check if App is Online or Offline to determine of calling api or load data from SQLite Database
         if Connectivity.isConnectedToInternet{
+            
             cell.image.sd_setImage(with: URL(string: data.downloadURL ?? "")) { [weak self] (image, error, imageCachType, url) in
+                cell.addImageGradient()
                 DispatchQueue.global().async {
                     if image?.pngData() != nil{
-                        self?.imageViewModel.insertRow(imageModel(id: data.id, author: data.author, downloadURL: nil, photo: image?.pngData()))
+                        self?.imageViewModel.insertRow(imageModel(id: data.id, author: data.author, downloadURL: data.downloadURL))
+                        
                     }
                 }
             }
@@ -118,14 +123,19 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
                 imageViewModel.fechData()
             }
         }else{
-            cell.image.image = UIImage(data: data.photo ?? Data())
+            //cell.image.image = UIImage(data: data.photo ?? Data())
+            cell.image.sd_setImage(with: URL(string: data.downloadURL ?? ""))
         }
-        
+        cell.author.text = data.author ?? ""    
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: leading, bottom: 0, right: leading)
     }
+    
     
 }
 
