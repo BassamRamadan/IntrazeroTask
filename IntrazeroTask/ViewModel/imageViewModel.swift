@@ -81,7 +81,8 @@ class ImageViewModel {
     }
     
     func cellForRowAt (indexPath: IndexPath) -> imageModel {
-        return imageArray.value![indexPath.row]
+        let bol = (indexPath.row > 5 ? 1 : 0)
+        return imageArray.value![indexPath.row - bol]
     }
     
     func insertRow(_ data: imageModel){

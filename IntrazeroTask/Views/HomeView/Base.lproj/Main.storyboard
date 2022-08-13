@@ -27,22 +27,31 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="images" id="Mej-PZ-6wV" customClass="imageCell" customModule="IntrazeroTask" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ads" id="BXw-YV-Ual">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N0v-aO-U4W" customClass="ViewShadow" customModule="IntrazeroTask" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="linkColor"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="images" id="Mej-PZ-6wV" customClass="imageCell" customModule="IntrazeroTask" customModuleProvider="target">
+                                        <rect key="frame" x="143" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vec-5P-OYL">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbD-8a-8cF" customClass="imageShadow" customModule="IntrazeroTask" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="5" width="88" height="118"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YbD-8a-8cF" firstAttribute="top" secondItem="Vec-5P-OYL" secondAttribute="top" constant="5" id="57e-60-LQa"/>
-                                                <constraint firstItem="YbD-8a-8cF" firstAttribute="leading" secondItem="Vec-5P-OYL" secondAttribute="leading" constant="20" id="ODz-Qc-Q3x"/>
-                                                <constraint firstAttribute="trailing" secondItem="YbD-8a-8cF" secondAttribute="trailing" constant="20" id="Vwb-2u-MWv"/>
-                                                <constraint firstAttribute="bottom" secondItem="YbD-8a-8cF" secondAttribute="bottom" constant="5" id="Z8k-o0-xHA"/>
+                                                <constraint firstItem="YbD-8a-8cF" firstAttribute="top" secondItem="Vec-5P-OYL" secondAttribute="top" id="57e-60-LQa"/>
+                                                <constraint firstItem="YbD-8a-8cF" firstAttribute="leading" secondItem="Vec-5P-OYL" secondAttribute="leading" id="ODz-Qc-Q3x"/>
+                                                <constraint firstAttribute="trailing" secondItem="YbD-8a-8cF" secondAttribute="trailing" id="Vwb-2u-MWv"/>
+                                                <constraint firstAttribute="bottom" secondItem="YbD-8a-8cF" secondAttribute="bottom" id="Z8k-o0-xHA"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -77,6 +86,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

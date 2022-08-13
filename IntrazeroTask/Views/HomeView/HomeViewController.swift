@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     var imageViewModel: ImageViewModel = {
        return ImageViewModel()
     }()
+    lazy var leading: CGFloat = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,12 +92,18 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return imageViewModel.numberOfRowsInSection(section: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: imagesCollection.frame.width, height: 220)
+        return .init(width: imagesCollection.frame.width - 2 * leading, height: ((indexPath.row+1)%6 == 0) ? 80 : 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "images", for: indexPath) as? imageCell else {return UICollectionViewCell()}
         
+        // every 5 items i set ads view between them
+        if ((indexPath.row+1)%6 == 0){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ads", for: indexPath)
+            return cell
+        }
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "images", for: indexPath) as? imageCell else {return UICollectionViewCell()}
         let data = imageViewModel.cellForRowAt(indexPath: indexPath)
         // Check if App is Online or Offline to determine of calling api or load data from SQLite Database
         if Connectivity.isConnectedToInternet{
@@ -116,7 +123,9 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: leading, bottom: 0, right: leading)
+    }
     
 }
 
