@@ -10,4 +10,5 @@ pod 'SQLite.swift', '~> 0.12.0'
 pod 'SDWebImage'
 pod 'Alamofire', '~> 4.8.2'
 pod 'AlamofireObjectMapper', :git => 'https://github.com/RomanPodymov/AlamofireObjectMapper.git', :branch => 'xcode-10-2-fix'
+pod 'DBImageColorPicker'
 end

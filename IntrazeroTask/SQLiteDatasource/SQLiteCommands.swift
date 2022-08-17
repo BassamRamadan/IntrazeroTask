@@ -10,7 +10,6 @@ import SQLite
 
 class SQLiteCommands {
     static var table = Table("images")
-    
     // Expressions
     static let id = Expression<String>("id")
     static let author = Expression<String>("author")
@@ -84,4 +83,6 @@ class SQLiteCommands {
         }
         return imageArray
     }
+    
+    
 }

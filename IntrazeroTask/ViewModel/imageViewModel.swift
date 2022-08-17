@@ -13,12 +13,13 @@ class ImageViewModel {
     var imageArray = Blindable<[imageModel]>()
     var state = Blindable<State>()
     var alertMessage = Blindable<String>()
-    var presentRowsIsFull = false
+    var presentRowsCount = 0
     
     init() {
         pageNamber = 0
         connectToDatabase()
         createTable()
+        presentRowsCount = (SQLiteCommands.presentRows() ?? []).count
     }
    
     
@@ -86,13 +87,11 @@ class ImageViewModel {
     }
     
     func insertRow(_ data: imageModel){
-        if presentRowsIsFull {
+        if presentRowsCount == 20 {
             return
         }
         if (SQLiteCommands.presentRows() ?? []).count < 20{
-            _ = SQLiteCommands.insertRow(data)
-        }else{
-            presentRowsIsFull = true
+            presentRowsCount += SQLiteCommands.insertRow(data) == true ? 1 : 0
         }
     }
 }

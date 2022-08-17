@@ -3,6 +3,7 @@ PODS:
   - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - DBImageColorPicker (1.0.5)
   - ObjectMapper (3.5.3)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -14,12 +15,14 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - AlamofireObjectMapper (from `https://github.com/RomanPodymov/AlamofireObjectMapper.git`, branch `xcode-10-2-fix`)
+  - DBImageColorPicker
   - SDWebImage
   - SQLite.swift (~> 0.12.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DBImageColorPicker
     - ObjectMapper
     - SDWebImage
     - SQLite.swift
@@ -37,10 +40,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 9fec33dcec52497a2a32678cd3a7b597b5a32514
+  DBImageColorPicker: b0b419b0653338544d766ed2008f2558b899fc60
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: f6eecd4fb0ea1ea71d806891be0b66c664040d23
+PODFILE CHECKSUM: b4d6702405634f77d0046f01de108472101a538b
 
 COCOAPODS: 1.11.3

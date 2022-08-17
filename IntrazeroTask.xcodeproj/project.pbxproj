@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26AF4BF05F243E3FB3FEC3DE /* Pods_IntrazeroTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA07FFF54F48131C55412DB /* Pods_IntrazeroTask.framework */; };
+		5803B18B28AA475D00324EDD /* imageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */; };
 		58730D8028A6F68F0088787D /* ShadowClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D7C28A6F68F0088787D /* ShadowClasses.swift */; };
 		58730D8128A6F68F0088787D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D7E28A6F68F0088787D /* AlamofireRequest.swift */; };
 		58730D8728A706C50088787D /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D8628A706C50088787D /* Connectivity.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageDetailsViewController.swift; sourceTree = "<group>"; };
 		58730D7C28A6F68F0088787D /* ShadowClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowClasses.swift; sourceTree = "<group>"; };
 		58730D7E28A6F68F0088787D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		58730D8628A706C50088787D /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5803B18828AA3AB900324EDD /* ImageDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */,
+			);
+			path = ImageDetailsView;
+			sourceTree = "<group>";
+		};
 		58730D7D28A6F68F0088787D /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				58730D8B28A7149D0088787D /* HomeView */,
+				5803B18828AA3AB900324EDD /* ImageDetailsView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				587D6D4228A64677006C3A45 /* SQLiteCommands.swift in Sources */,
+				5803B18B28AA475D00324EDD /* imageDetailsViewController.swift in Sources */,
 				58BBE7CA28A52C6F002AC50A /* HomeViewController.swift in Sources */,
 				58BBE7C628A52C6F002AC50A /* AppDelegate.swift in Sources */,
 				587D6D3F28A64593006C3A45 /* SQLiteDatabase.swift in Sources */,

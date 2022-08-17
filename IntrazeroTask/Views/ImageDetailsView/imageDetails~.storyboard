@@ -104,12 +104,50 @@
                         <outlet property="dataAvailabel" destination="RYK-w8-5Az" id="4VW-em-pwO"/>
                         <outlet property="imagesCollection" destination="00s-uj-7dH" id="cSU-cc-lxP"/>
                         <outlet property="indicatorView" destination="l4J-Op-cL0" id="sBL-fF-wAa"/>
-                        <segue destination="nqM-FU-xI4" kind="show" identifier="imageDetails" id="T7t-O3-wZp"/>
+                        <segue destination="ytv-be-1Hr" kind="show" identifier="imageDetails" id="wc3-AB-few"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.7971014492755" y="92.410714285714278"/>
+        </scene>
+        <!--Image Details View Controller-->
+        <scene sceneID="eWH-ae-yhs">
+            <objects>
+                <viewController id="ytv-be-1Hr" customClass="imageDetailsViewController" customModule="IntrazeroTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2wn-FT-NEe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4O-Dc-4BY" customClass="ViewShadow" customModule="IntrazeroTask" customModuleProvider="target">
+                                <rect key="frame" x="31" y="224" width="352" height="448"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-H8-n8j" customClass="imageShadow" customModule="IntrazeroTask" customModuleProvider="target">
+                                <rect key="frame" x="66" y="124" width="282" height="313.5"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Oun-sh-mHB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w4O-Dc-4BY" firstAttribute="centerX" secondItem="2wn-FT-NEe" secondAttribute="centerX" id="0qN-A5-dOz"/>
+                            <constraint firstItem="jbd-H8-n8j" firstAttribute="top" secondItem="w4O-Dc-4BY" secondAttribute="top" constant="-100" id="7Dt-b2-034"/>
+                            <constraint firstItem="jbd-H8-n8j" firstAttribute="width" secondItem="w4O-Dc-4BY" secondAttribute="width" multiplier="0.8" id="H8e-8R-TEQ"/>
+                            <constraint firstItem="w4O-Dc-4BY" firstAttribute="width" secondItem="2wn-FT-NEe" secondAttribute="width" multiplier="0.85" id="HiE-R1-RnH"/>
+                            <constraint firstItem="w4O-Dc-4BY" firstAttribute="height" secondItem="2wn-FT-NEe" secondAttribute="height" multiplier="0.5" id="IXx-xC-1Wo"/>
+                            <constraint firstItem="w4O-Dc-4BY" firstAttribute="centerY" secondItem="2wn-FT-NEe" secondAttribute="centerY" id="Pid-Ca-Zgn"/>
+                            <constraint firstItem="jbd-H8-n8j" firstAttribute="centerX" secondItem="w4O-Dc-4BY" secondAttribute="centerX" id="cHr-ac-I4a"/>
+                            <constraint firstItem="jbd-H8-n8j" firstAttribute="height" secondItem="w4O-Dc-4BY" secondAttribute="height" multiplier="0.7" id="n7Y-NC-WGo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cwE-yl-cTP"/>
+                    <connections>
+                        <outlet property="container" destination="w4O-Dc-4BY" id="MQY-BT-FHW"/>
+                        <outlet property="image" destination="jbd-H8-n8j" id="ljM-hh-NFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gz0-VN-D0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BO4-fR-JLV">
@@ -132,50 +170,7 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="92.410714285714278"/>
         </scene>
-        <!--Image Details View Controller-->
-        <scene sceneID="bQ6-Ag-LtU">
-            <objects>
-                <viewController id="nqM-FU-xI4" customClass="imageDetailsViewController" customModule="IntrazeroTask" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="olh-E4-JUi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wph-YJ-ajM" customClass="ViewShadow" customModule="IntrazeroTask" customModuleProvider="target">
-                                <rect key="frame" x="31" y="224" width="352" height="448"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="P5V-0x-FUU" customClass="imageShadow" customModule="IntrazeroTask" customModuleProvider="target">
-                                <rect key="frame" x="66" y="124" width="282" height="313.5"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="LQy-K6-6Cd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="P5V-0x-FUU" firstAttribute="width" secondItem="wph-YJ-ajM" secondAttribute="width" multiplier="0.8" id="9sH-PT-gc1"/>
-                            <constraint firstItem="wph-YJ-ajM" firstAttribute="centerY" secondItem="olh-E4-JUi" secondAttribute="centerY" id="GOO-RD-I3Z"/>
-                            <constraint firstItem="wph-YJ-ajM" firstAttribute="height" secondItem="olh-E4-JUi" secondAttribute="height" multiplier="0.5" id="Zlm-zK-Ql1"/>
-                            <constraint firstItem="P5V-0x-FUU" firstAttribute="height" secondItem="wph-YJ-ajM" secondAttribute="height" multiplier="0.7" id="bFJ-IG-vwh"/>
-                            <constraint firstItem="wph-YJ-ajM" firstAttribute="width" secondItem="olh-E4-JUi" secondAttribute="width" multiplier="0.85" id="c0X-2s-Lvy"/>
-                            <constraint firstItem="P5V-0x-FUU" firstAttribute="centerX" secondItem="wph-YJ-ajM" secondAttribute="centerX" id="cxV-Uh-U9C"/>
-                            <constraint firstItem="wph-YJ-ajM" firstAttribute="centerX" secondItem="olh-E4-JUi" secondAttribute="centerX" id="fgl-pg-OS5"/>
-                            <constraint firstItem="P5V-0x-FUU" firstAttribute="top" secondItem="wph-YJ-ajM" secondAttribute="top" constant="-100" id="qyy-pM-PKL"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="CJh-jC-1ch"/>
-                    <connections>
-                        <outlet property="container" destination="wph-YJ-ajM" id="GKE-jB-Wf8"/>
-                        <outlet property="image" destination="P5V-0x-FUU" id="s1b-ur-doK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NmY-EO-mmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1993" y="92"/>
-        </scene>
     </scenes>
-    <designables>
-        <designable name="N7E-98-XFK">
-            <size key="intrinsicContentSize" width="42" height="19.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="default" width="640" height="320"/>
         <systemColor name="linkColor">

@@ -5,16 +5,23 @@ import UIKit
 class ViewShadow: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.70
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.8
-        layer.masksToBounds = false
+        layer.borderColor = UIColor.blue.cgColor
+        layer.borderWidth = 1.5
+        layer.cornerRadius = 20
+        clipsToBounds = true
         
-        layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 0.3
-        layer.cornerRadius = 15
+        
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 1
+        layer.shadowColor = UIColor.blue.cgColor
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0,
+                                                          y: bounds.maxY + layer.shadowRadius,
+                                                          width: bounds.width,
+                                                          height: layer.shadowRadius),
+                                        byRoundingCorners: [.bottomLeft, .bottomRight],
+                                        cornerRadii: CGSize(width: 15.0, height: 0.0)).cgPath
     }
 }
 class LabelShadow: PaddingLabel {
@@ -22,7 +29,6 @@ class LabelShadow: PaddingLabel {
         super.awakeFromNib()
         layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowRadius = 3
-        layer.shadowOpacity = 0.70
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.8
         layer.masksToBounds = false

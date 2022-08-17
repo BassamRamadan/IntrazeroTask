@@ -76,7 +76,7 @@ class HomeViewController: UIViewController {
     }
     
     // Create Error Handler Alert
-    func makeAlert( message: String) -> UIAlertController{
+    private func makeAlert( message: String) -> UIAlertController{
         let alert = UIAlertController(title: "Alert", message: message , preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             switch action.style{
@@ -88,28 +88,41 @@ class HomeViewController: UIViewController {
         return alert
     }
     
+    // Check if row is Ads
+    private func isAds(at: IndexPath) -> Bool{
+        return  ((at.row+1)%6 == 0)
+    }
+    
+    // Segue to image Details View
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "imageDetails"{
+            if let dest = segue.destination as? imageDetailsViewController{
+                dest.imageInfo = sender as? imageModel
+            }
+        }
+    }
 }
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageViewModel.numberOfRowsInSection(section: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: imagesCollection.frame.width - 2 * leading, height: ((indexPath.row+1)%6 == 0) ? 80 : 220)
+        return .init(width: imagesCollection.frame.width - 2 * leading, height: (isAds(at: indexPath) ? 80 : 220))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // every 5 items i set ads view between them
-        if ((indexPath.row+1)%6 == 0){
+        if isAds(at: indexPath){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ads", for: indexPath)
             return cell
         }
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "images", for: indexPath) as? imageCell else {return UICollectionViewCell()}
         let data = imageViewModel.cellForRowAt(indexPath: indexPath)
+        
         // Check if App is Online or Offline to determine of calling api or load data from SQLite Database
         if Connectivity.isConnectedToInternet{
-            
             cell.image.sd_setImage(with: URL(string: data.downloadURL ?? "")) { [weak self] (image, error, imageCachType, url) in
                 cell.addImageGradient()
                 DispatchQueue.global().async {
@@ -136,6 +149,10 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return .init(top: 0, left: leading, bottom: 0, right: leading)
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isAds(at: indexPath) == false{
+            performSegue(withIdentifier: "imageDetails", sender:  imageViewModel.cellForRowAt(indexPath: indexPath))
+        }
+    }
 }
 
