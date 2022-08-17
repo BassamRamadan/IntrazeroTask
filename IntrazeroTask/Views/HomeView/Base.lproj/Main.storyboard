@@ -141,23 +141,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wph-YJ-ajM" customClass="ViewShadow" customModule="IntrazeroTask" customModuleProvider="target">
-                                <rect key="frame" x="31" y="224" width="352" height="448"/>
+                                <rect key="frame" x="31" y="295" width="352" height="448"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="P5V-0x-FUU" customClass="imageShadow" customModule="IntrazeroTask" customModuleProvider="target">
-                                <rect key="frame" x="66" y="124" width="282" height="313.5"/>
+                                <rect key="frame" x="66" y="138" width="282" height="313.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LQy-K6-6Cd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="P5V-0x-FUU" firstAttribute="width" secondItem="wph-YJ-ajM" secondAttribute="width" multiplier="0.8" id="9sH-PT-gc1"/>
-                            <constraint firstItem="wph-YJ-ajM" firstAttribute="centerY" secondItem="olh-E4-JUi" secondAttribute="centerY" id="GOO-RD-I3Z"/>
                             <constraint firstItem="wph-YJ-ajM" firstAttribute="height" secondItem="olh-E4-JUi" secondAttribute="height" multiplier="0.5" id="Zlm-zK-Ql1"/>
                             <constraint firstItem="P5V-0x-FUU" firstAttribute="height" secondItem="wph-YJ-ajM" secondAttribute="height" multiplier="0.7" id="bFJ-IG-vwh"/>
                             <constraint firstItem="wph-YJ-ajM" firstAttribute="width" secondItem="olh-E4-JUi" secondAttribute="width" multiplier="0.85" id="c0X-2s-Lvy"/>
                             <constraint firstItem="P5V-0x-FUU" firstAttribute="centerX" secondItem="wph-YJ-ajM" secondAttribute="centerX" id="cxV-Uh-U9C"/>
                             <constraint firstItem="wph-YJ-ajM" firstAttribute="centerX" secondItem="olh-E4-JUi" secondAttribute="centerX" id="fgl-pg-OS5"/>
-                            <constraint firstItem="P5V-0x-FUU" firstAttribute="top" secondItem="wph-YJ-ajM" secondAttribute="top" constant="-100" id="qyy-pM-PKL"/>
+                            <constraint firstItem="wph-YJ-ajM" firstAttribute="top" secondItem="P5V-0x-FUU" secondAttribute="centerY" id="qyy-pM-PKL"/>
+                            <constraint firstItem="P5V-0x-FUU" firstAttribute="top" secondItem="LQy-K6-6Cd" secondAttribute="top" constant="50" id="rwe-1p-Qcs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CJh-jC-1ch"/>
@@ -173,7 +173,7 @@
     </scenes>
     <designables>
         <designable name="N7E-98-XFK">
-            <size key="intrinsicContentSize" width="42" height="19.5"/>
+            <size key="intrinsicContentSize" width="56" height="29.5"/>
         </designable>
     </designables>
     <resources>

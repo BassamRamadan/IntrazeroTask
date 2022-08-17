@@ -17,13 +17,24 @@ class HomeViewController: UIViewController {
        return ImageViewModel()
     }()
     lazy var leading: CGFloat = 20
-    
+    lazy var ratio: CGFloat = 0.3
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initCollection()
         initViewModel()
+        
+        
     }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if (UIDevice.current.orientation.isPortrait){
+            ratio = 0.25
+        }else{
+            ratio = 0.45
+        }
+    }
+    
     private func initCollection(){
         imagesCollection.delegate = self
         imagesCollection.dataSource = self
@@ -107,7 +118,7 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return imageViewModel.numberOfRowsInSection(section: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: imagesCollection.frame.width - 2 * leading, height: (isAds(at: indexPath) ? 80 : 220))
+        return .init(width: imagesCollection.frame.width - 2 * leading, height: (isAds(at: indexPath) ? 80 : ratio*UIScreen.main.bounds.size.height))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
