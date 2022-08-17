@@ -17,21 +17,29 @@ class HomeViewController: UIViewController {
        return ImageViewModel()
     }()
     lazy var leading: CGFloat = 20
-    lazy var ratio: CGFloat = 0.3
+    lazy var ratio: CGFloat = 0.25
+    lazy var bounds: CGFloat = self.view.frame.size.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBounds(height: self.view.frame.size.height)
         initCollection()
         initViewModel()
         
-        
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        if (UIDevice.current.orientation.isPortrait){
-            ratio = 0.25
-        }else{
-            ratio = 0.45
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        setBounds(height: size.height)
+    }
+    
+    func setBounds(height: CGFloat){
+        self.bounds = height
+        if UIDevice.current.orientation.isLandscape {
+            self.ratio = 0.4
+        } else {
+            self.ratio = 0.25
         }
     }
     
@@ -118,7 +126,8 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return imageViewModel.numberOfRowsInSection(section: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: imagesCollection.frame.width - 2 * leading, height: (isAds(at: indexPath) ? 80 : ratio*UIScreen.main.bounds.size.height))
+        print("bouns = \(bounds) -- ratio = \(ratio)")
+        return .init(width: imagesCollection.frame.width - 2 * leading, height: (isAds(at: indexPath) ? 80 : ratio*bounds))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
