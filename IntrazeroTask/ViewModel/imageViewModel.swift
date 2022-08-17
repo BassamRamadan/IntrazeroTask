@@ -15,6 +15,7 @@ class ImageViewModel {
     var alertMessage = Blindable<String>()
     var presentRowsCount = 0
     
+    
     init() {
         pageNamber = 0
         connectToDatabase()

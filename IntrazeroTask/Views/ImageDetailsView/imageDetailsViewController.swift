@@ -13,7 +13,7 @@ class imageDetailsViewController: UIViewController {
     @IBOutlet var image: UIImageView!
     @IBOutlet var container: UIView!
     
-    var imageInfo: imageModel?
+    var imageInfo: imageModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

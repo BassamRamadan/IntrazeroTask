@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		26AF4BF05F243E3FB3FEC3DE /* Pods_IntrazeroTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA07FFF54F48131C55412DB /* Pods_IntrazeroTask.framework */; };
 		5803B18B28AA475D00324EDD /* imageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */; };
+		583ED7F928AD438700DECBBC /* imageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583ED7F828AD438700DECBBC /* imageViewModelTest.swift */; };
+		583ED7FD28AD4C5900DECBBC /* imageDetailsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583ED7FC28AD4C5900DECBBC /* imageDetailsViewControllerTest.swift */; };
 		58730D8028A6F68F0088787D /* ShadowClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D7C28A6F68F0088787D /* ShadowClasses.swift */; };
 		58730D8128A6F68F0088787D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D7E28A6F68F0088787D /* AlamofireRequest.swift */; };
 		58730D8728A706C50088787D /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58730D8628A706C50088787D /* Connectivity.swift */; };
@@ -26,8 +28,22 @@
 		58BBE7E128A5315D002AC50A /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BBE7E028A5315D002AC50A /* imageCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		583ED7EF28AD434100DECBBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58BBE7BA28A52C6F002AC50A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58BBE7C128A52C6F002AC50A;
+			remoteInfo = IntrazeroTask;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageDetailsViewController.swift; sourceTree = "<group>"; };
+		583ED7EA28AD434100DECBBC /* IntrazeroTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntrazeroTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		583ED7EE28AD434100DECBBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		583ED7F828AD438700DECBBC /* imageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewModelTest.swift; sourceTree = "<group>"; };
+		583ED7FC28AD4C5900DECBBC /* imageDetailsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageDetailsViewControllerTest.swift; sourceTree = "<group>"; };
 		58730D7C28A6F68F0088787D /* ShadowClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowClasses.swift; sourceTree = "<group>"; };
 		58730D7E28A6F68F0088787D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		58730D8628A706C50088787D /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
@@ -51,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		583ED7E728AD434100DECBBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58BBE7BF28A52C6F002AC50A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +91,16 @@
 				5803B18A28AA475D00324EDD /* imageDetailsViewController.swift */,
 			);
 			path = ImageDetailsView;
+			sourceTree = "<group>";
+		};
+		583ED7EB28AD434100DECBBC /* IntrazeroTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				583ED7EE28AD434100DECBBC /* Info.plist */,
+				583ED7F828AD438700DECBBC /* imageViewModelTest.swift */,
+				583ED7FC28AD4C5900DECBBC /* imageDetailsViewControllerTest.swift */,
+			);
+			path = IntrazeroTaskTests;
 			sourceTree = "<group>";
 		};
 		58730D7D28A6F68F0088787D /* Alamofire */ = {
@@ -141,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				58BBE7C428A52C6F002AC50A /* IntrazeroTask */,
+				583ED7EB28AD434100DECBBC /* IntrazeroTaskTests */,
 				58BBE7C328A52C6F002AC50A /* Products */,
 				E0DAA899048636EE3E0E14A4 /* Pods */,
 				B66AE7C3A5DC419A665A4CE4 /* Frameworks */,
@@ -151,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				58BBE7C228A52C6F002AC50A /* IntrazeroTask.app */,
+				583ED7EA28AD434100DECBBC /* IntrazeroTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +223,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		583ED7E928AD434100DECBBC /* IntrazeroTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 583ED7F328AD434100DECBBC /* Build configuration list for PBXNativeTarget "IntrazeroTaskTests" */;
+			buildPhases = (
+				583ED7E628AD434100DECBBC /* Sources */,
+				583ED7E728AD434100DECBBC /* Frameworks */,
+				583ED7E828AD434100DECBBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				583ED7F028AD434100DECBBC /* PBXTargetDependency */,
+			);
+			name = IntrazeroTaskTests;
+			productName = IntrazeroTaskTests;
+			productReference = 583ED7EA28AD434100DECBBC /* IntrazeroTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		58BBE7C128A52C6F002AC50A /* IntrazeroTask */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58BBE7D628A52C76002AC50A /* Build configuration list for PBXNativeTarget "IntrazeroTask" */;
@@ -216,6 +269,11 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					583ED7E928AD434100DECBBC = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+						TestTargetID = 58BBE7C128A52C6F002AC50A;
+					};
 					58BBE7C128A52C6F002AC50A = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -235,11 +293,19 @@
 			projectRoot = "";
 			targets = (
 				58BBE7C128A52C6F002AC50A /* IntrazeroTask */,
+				583ED7E928AD434100DECBBC /* IntrazeroTaskTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		583ED7E828AD434100DECBBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58BBE7C028A52C6F002AC50A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +361,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		583ED7E628AD434100DECBBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				583ED7F928AD438700DECBBC /* imageViewModelTest.swift in Sources */,
+				583ED7FD28AD4C5900DECBBC /* imageDetailsViewControllerTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58BBE7BE28A52C6F002AC50A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +392,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		583ED7F028AD434100DECBBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58BBE7C128A52C6F002AC50A /* IntrazeroTask */;
+			targetProxy = 583ED7EF28AD434100DECBBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		58BBE7CB28A52C6F002AC50A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -337,6 +420,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		583ED7F128AD434100DECBBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JK82RVS3TB;
+				INFOPLIST_FILE = IntrazeroTaskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassam.IntrazeroTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntrazeroTask.app/IntrazeroTask";
+			};
+			name = Debug;
+		};
+		583ED7F228AD434100DECBBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JK82RVS3TB;
+				INFOPLIST_FILE = IntrazeroTaskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassam.IntrazeroTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntrazeroTask.app/IntrazeroTask";
+			};
+			name = Release;
+		};
 		58BBE7D428A52C76002AC50A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -496,6 +622,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		583ED7F328AD434100DECBBC /* Build configuration list for PBXNativeTarget "IntrazeroTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				583ED7F128AD434100DECBBC /* Debug */,
+				583ED7F228AD434100DECBBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		58BBE7BD28A52C6F002AC50A /* Build configuration list for PBXProject "IntrazeroTask" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
